@@ -5,7 +5,7 @@ async function main() {
 
   const question = await getQuestion(token!);
 
-  await setAnswer(token!, question.cookie);
+  await setAnswer(token!, question!.cookie);
 }
 
 main();

@@ -1,9 +1,10 @@
 import "dotenv/config";
+import { TTokenData, TQuestionData, TTAnswerData } from "../types/index";
 
 const config = {
-  apiKey: process.env.TASKS_API_KEY,
+  apiKey: process.env.TASKS_API_KEY as string,
   token: "",
-  url: process.env.AI_DEVS_URL,
+  url: process.env.AI_DEVS_URL as string,
 };
 
 export async function authorize(taskName: string): Promise<string | null> {
@@ -21,7 +22,7 @@ export async function authorize(taskName: string): Promise<string | null> {
     if (!response.ok) {
       throw new Error(`HTTP error: ${response.status}`);
     }
-    const data = (await response.json()) as { token: string };
+    const data = (await response.json()) as TTokenData;
     console.log("Token: ", data);
     config.token = data.token;
     return data.token;
@@ -31,7 +32,9 @@ export async function authorize(taskName: string): Promise<string | null> {
   }
 }
 
-export async function getQuestion(token: string) {
+export async function getQuestion(
+  token: string
+): Promise<TQuestionData | null> {
   // replace all oocurance of - with / in token
   token = token.replace(/-/g, "/");
   try {
@@ -45,7 +48,7 @@ export async function getQuestion(token: string) {
       throw new Error(`HTTP error ${response.status}`);
     }
 
-    const data = await response.json();
+    const data = (await response.json()) as TQuestionData;
     console.log("Task data: ", data);
     return data;
   } catch (error) {
@@ -54,7 +57,10 @@ export async function getQuestion(token: string) {
   }
 }
 
-export async function setAnswer(token: string, answer: string) {
+export async function setAnswer(
+  token: string,
+  answer: string
+): Promise<TTAnswerData | null> {
   token = token.replace(/-/g, "/");
 
   try {
@@ -67,7 +73,7 @@ export async function setAnswer(token: string, answer: string) {
         answer: answer,
       }),
     });
-    const data = await response.json();
+    const data: TTAnswerData = await response.json();
     console.log("send_answer data: ", data);
     return data;
   } catch (error) {

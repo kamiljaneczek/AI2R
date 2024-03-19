@@ -1,16 +1,16 @@
-type TQuestionData = {
+export type TQuestionData = {
   code: number;
   msg: string;
   cookie: string;
 };
 
-type TTokenData = {
+export type TTokenData = {
   code: number;
   msg: string;
   token: string;
 };
 
-type TTAnswerData = {
+export type TTAnswerData = {
   code: number;
   msg: string;
   note: string;

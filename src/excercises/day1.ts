@@ -1,4 +1,4 @@
-import { authorize, getQuestion, setAnswer } from "./lib/utils";
+import { authorize, getQuestion, setAnswer } from "../lib/utils";
 
 async function main() {
   const token = await authorize("helloapi");

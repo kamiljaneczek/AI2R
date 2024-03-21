@@ -1,10 +1,9 @@
 import "dotenv/config";
-import { TTokenData, TQuestionData, TTAnswerData } from "../types/index";
 
 const config = {
-  apiKey: process.env.TASKS_API_KEY as string,
+  apiKey: process.env.TASKS_API_KEY,
   token: "",
-  url: process.env.AI_DEVS_URL as string,
+  url: process.env.AI_DEVS_URL,
 };
 
 export async function authorize(taskName: string): Promise<string | null> {
@@ -22,7 +21,7 @@ export async function authorize(taskName: string): Promise<string | null> {
     if (!response.ok) {
       throw new Error(`HTTP error: ${response.status}`);
     }
-    const data = (await response.json()) as TTokenData;
+    const data = (await response.json()) as { token: string };
     console.log("Token: ", data);
     config.token = data.token;
     return data.token;
@@ -32,9 +31,7 @@ export async function authorize(taskName: string): Promise<string | null> {
   }
 }
 
-export async function getQuestion(
-  token: string
-): Promise<TQuestionData | null> {
+export async function getQuestion(token: string) {
   // replace all oocurance of - with / in token
   token = token.replace(/-/g, "/");
   try {
@@ -48,7 +45,7 @@ export async function getQuestion(
       throw new Error(`HTTP error ${response.status}`);
     }
 
-    const data = (await response.json()) as TQuestionData;
+    const data = await response.json();
     console.log("Task data: ", data);
     return data;
   } catch (error) {
@@ -57,10 +54,7 @@ export async function getQuestion(
   }
 }
 
-export async function setAnswer(
-  token: string,
-  answer: string
-): Promise<TTAnswerData | null> {
+export async function setAnswer(token: string, answer: any) {
   token = token.replace(/-/g, "/");
 
   try {
@@ -73,7 +67,7 @@ export async function setAnswer(
         answer: answer,
       }),
     });
-    const data: TTAnswerData = await response.json();
+    const data = await response.json();
     console.log("send_answer data: ", data);
     return data;
   } catch (error) {

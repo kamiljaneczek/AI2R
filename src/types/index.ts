@@ -1,7 +1,9 @@
 export type TQuestionData = {
   code: number;
   msg: string;
-  cookie: string;
+  cookie?: string;
+  input?: string[];
+  blog?: string[];
 };
 
 export type TTokenData = {

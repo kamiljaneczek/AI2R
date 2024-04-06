@@ -1,4 +1,5 @@
-import "dotenv/config";
+import dotenv from "dotenv";
+dotenv.config();
 
 const config = {
   apiKey: process.env.TASKS_API_KEY,
@@ -40,6 +41,29 @@ export async function getQuestion(token: string) {
       headers: {
         "Content-Type": "application/json",
       },
+    });
+    if (!response.ok) {
+      throw new Error(`HTTP error ${response.status}`);
+    }
+
+    const data = await response.json();
+    console.log("Task data: ", data);
+    return data;
+  } catch (error) {
+    console.error("Error fetching task data:", error);
+    return null;
+  }
+}
+
+export async function sendQuestion(token: string, question: string) {
+  // replace all oocurance of - with / in token
+  token = token.replace(/-/g, "/");
+  try {
+    const dataIn = new URLSearchParams();
+    dataIn.append("question", question);
+    const response = await fetch(`${config.url}/task/${config.token}`, {
+      method: "POST",
+      body: dataIn,
     });
     if (!response.ok) {
       throw new Error(`HTTP error ${response.status}`);

@@ -4,6 +4,7 @@ export type TQuestionData = {
   cookie?: string;
   input?: string[];
   blog?: string[];
+  question?: string;
 };
 
 export type TTokenData = {

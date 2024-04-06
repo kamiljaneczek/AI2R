@@ -1,5 +1,9 @@
-import { authorize, getQuestion, sendQuestion, setAnswer } from "../lib/utils";
-import { TQuestionData } from "../types";
+import {
+  authorize,
+  getQuestion,
+  sendQuestion,
+  setAnswer,
+} from "../lib/utils.js";
 
 import { ChatOpenAI } from "langchain/chat_models/openai";
 import {
@@ -7,7 +11,7 @@ import {
   HumanMessage,
   SystemMessage,
 } from "langchain/schema";
-import { context } from "../samples/02_langchain_format/02_context";
+import { context } from "../samples/02_langchain_format/02_context.js";
 
 async function main() {
   const token = await authorize("scraper");

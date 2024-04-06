@@ -1,12 +1,13 @@
-import { authorize, getQuestion, sendQuestion, setAnswer } from "../lib/utils";
-import { moderationOpenAI } from "../lib/moderation-openAI";
-import { chatInvoke } from "../lib/completion";
-import { TQuestionData } from "../types";
-import { create } from "domain";
-import { createEmbedding } from "../lib/create-embedding";
-import { getEmbedding } from "../samples/chat/memory";
-import { callWhisper } from "../lib/whisper";
-import { Document } from "langchain/document";
+import {
+  authorize,
+  getQuestion,
+  sendQuestion,
+  setAnswer,
+} from "../lib/utils.js";
+
+import { TQuestionData } from "../types/index.js";
+
+import { callWhisper } from "../lib/whisper.js";
 
 async function main() {
   const token = await authorize("whisper");

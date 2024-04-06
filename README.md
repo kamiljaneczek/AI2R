@@ -7,4 +7,5 @@ Run npm install
 
 ### Usage
 - Create .env file and set AI_DEVS_API_KEY env 
-- Run npm dev
+- Run npx tsx .\src\excercises\EXCERCISE_NAME.ts
+

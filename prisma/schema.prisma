@@ -26,3 +26,18 @@ model Document {
 
   @@map("document")
 }
+
+model People {
+  id                               String                       @id @default(cuid())
+  imie                             String
+  nazwisko                         String
+  wiek                             Int
+  o_mnie                           String
+  ulubiona_postac_z_kapitana_bomby String
+  ulubiony_serial                  String
+  ulubiony_film                    String
+  ulubiony_kolor                   String
+  embedding                        Unsupported("vector(1536)")?
+
+  @@map("people")
+}

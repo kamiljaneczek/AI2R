@@ -27,3 +27,15 @@ export type TDocument = {
   url: string;
   date: string;
 };
+
+export type TPeople = {
+  id: string;
+  imie: string;
+  nazwisko: string;
+  wiek: number;
+  o_mnie: string;
+  ulubiona_postac_z_kapitana_bomby: string;
+  ulubiony_serial: string;
+  ulubiony_film: string;
+  ulubiony_kolor: string;
+};

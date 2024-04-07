@@ -18,3 +18,12 @@ export type TTAnswerData = {
   msg: string;
   note: string;
 };
+
+export type TDocument = {
+  id: string;
+  title: string;
+  name: string;
+  info: string;
+  url: string;
+  date: string;
+};

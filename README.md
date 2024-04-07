@@ -3,7 +3,8 @@
 - configuration for ESLint and Prettier
 
 ### Installation 
-Run npm install
+- Run npm install
+- rename.env.sample to .env and provide requried params (OpenAI key, DB connection details ..)
 
 ### Usage
 - Create .env file and set AI_DEVS_API_KEY env 

@@ -1,5 +1,10 @@
-import { authorize, getQuestion, sendQuestion, setAnswer } from "../lib/utils";
-import { TQuestionData } from "../types";
+import {
+  authorize,
+  getQuestion,
+  sendQuestion,
+  setAnswer,
+} from "../lib/utils.js";
+import { TQuestionData } from "../types/index.js";
 
 import { ChatOpenAI } from "langchain/chat_models/openai";
 import { BaseMessageChunk, HumanMessage } from "langchain/schema";

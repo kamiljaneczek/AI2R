@@ -1,5 +1,5 @@
-import { authorize, getQuestion, setAnswer } from "../lib/utils";
-import { moderationOpenAI } from "../lib/moderation-openAI";
+import { authorize, getQuestion, setAnswer } from "../lib/utils.js";
+import { moderationOpenAI } from "../lib/moderation-openAI.js";
 
 async function main() {
   const token = await authorize("moderation");

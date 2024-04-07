@@ -1,7 +1,7 @@
-import { authorize, getQuestion, setAnswer } from "../lib/utils";
-import { moderationOpenAI } from "../lib/moderation-openAI";
-import { chatInvoke } from "../lib/completion";
-import { TQuestionData } from "../types";
+import { authorize, getQuestion, setAnswer } from "../lib/utils.js";
+import { moderationOpenAI } from "../lib/moderation-openAI.js";
+import { chatInvoke } from "../lib/completion.js";
+import { TQuestionData } from "../types/index.js";
 
 async function main() {
   const token = await authorize("blogger");

@@ -14,7 +14,7 @@ async function main() {
 
   const question = task.question;
 
-  /*   await prisma.people.deleteMany({});
+  await prisma.people.deleteMany({});
 
   const response = await fetch("https://tasks.aidevs.pl/data/people.json", {
     method: "GET",
@@ -61,7 +61,7 @@ async function main() {
 
   const recordsCount = await prisma.people.count();
   console.log(`Added ${recordsCount} records to the database.`);
- */
+
   const people = await searchPeople(question);
 
   const context = people

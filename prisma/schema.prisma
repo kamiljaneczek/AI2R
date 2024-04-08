@@ -41,3 +41,22 @@ model People {
 
   @@map("people")
 }
+
+model Country {
+  id         String                       @id @default(cuid())
+  name       String
+  population Int
+  embedding  Unsupported("vector(1536)")?
+
+  @@map("country")
+}
+
+model Currency {
+  id        String                       @id @default(cuid())
+  currency  String
+  code      String
+  midValue  String
+  embedding Unsupported("vector(1536)")?
+
+  @@map("currency")
+}

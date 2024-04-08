@@ -39,3 +39,20 @@ export type TPeople = {
   ulubiony_film: string;
   ulubiony_kolor: string;
 };
+
+export type TCountry = {
+  id: string;
+  name: {
+    common: string;
+    official: string;
+  };
+  population: number;
+};
+
+export type TCurrency = {
+  id: string;
+  currency: string;
+  code: string;
+  midValue?: string;
+  mid?: string;
+};

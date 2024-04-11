@@ -29,9 +29,9 @@ async function main() {
   });
 
   const res = await chat.invoke([message]);
-  console.log({ res });
+  
   const answer = res.content.toString();
-  console.log("url is:", url);
+ 
 
   console.log("answer is:", answer);
   const reply = await setAnswer(token!, answer);
